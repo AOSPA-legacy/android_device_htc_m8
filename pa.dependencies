@@ -82,5 +82,11 @@
         "repository": "proprietary_vendor_htc",
         "target_path": "vendor/htc",
         "revision": "cm-11.0"
+    },
+    {
+        "remote": "cm",
+        "repository": "CyanogenMod/android_hardware_qcom_fm",
+        "target_path": "hardware/qcom/fm",
+        "revision": "cm-11.0"
     }
 ]
