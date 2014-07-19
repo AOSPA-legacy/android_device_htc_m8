@@ -33,15 +33,18 @@ com.qc.hardware=true
 persist.thermal.monitor=true
 ro.qc.sdk.sensors.gestures=true
 ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+ro.qualcomm.perf.cores_online=2
 
 # Audio
 audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=false
-lpa.decode=true
+av.offload.enable=true
+av.streaming.offload.enable=true
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.speaker=true
 ro.qc.sdk.audio.fluencetype=fluence
 tunnel.audio.encode=true
+af.resampler.quality=4
 
 # AV
 media.aac_51_output_enabled=true
@@ -54,7 +57,6 @@ ro.qc.sdk.izat.premium_enabled=0
 ro.qc.sdk.izat.service_mask=0x0
 
 # Graphics
-debug.composition.type=gpu
 debug.egl.hw=1
 debug.mdpcomp.logs=0
 debug.sf.hw=1
