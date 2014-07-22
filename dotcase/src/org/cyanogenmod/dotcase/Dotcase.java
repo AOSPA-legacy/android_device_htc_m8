@@ -45,7 +45,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.android.internal.telephony.ITelephony;
-import com.android.internal.util.cm.TorchConstants;
+//import com.android.internal.util.cm.TorchConstants;
 
 import java.lang.Math;
 import java.io.BufferedReader;
@@ -85,7 +85,7 @@ public class Dotcase extends Activity implements SensorEventListener
         mContext = this;
 
         filter.addAction(DotcaseConstants.ACTION_KILL_ACTIVITY);
-        filter.addAction(TorchConstants.ACTION_STATE_CHANGED);
+        //filter.addAction(TorchConstants.ACTION_STATE_CHANGED);
         mContext.getApplicationContext().registerReceiver(receiver, filter);
 
         getWindow().addFlags(
@@ -255,11 +255,11 @@ public class Dotcase extends Activity implements SensorEventListener
     class DotcaseGestureListener extends GestureDetector.SimpleOnGestureListener
     {
 
-        @Override
+        /*@Override
         public void onLongPress(MotionEvent event) {
             Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
             mContext.sendBroadcast(i);
-        }
+        }*/
 
         @Override
         public boolean onDoubleTap(MotionEvent event) {
@@ -312,8 +312,8 @@ public class Dotcase extends Activity implements SensorEventListener
                         && e.getX() < 26 * DotcaseConstants.dotratio
                         && e.getY() > 22 * DotcaseConstants.dotratio
                         && e.getY() < 32 * DotcaseConstants.dotratio){
-                    Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
-                    mContext.sendBroadcast(i);
+                    /*Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
+                    mContext.sendBroadcast(i);*/
                 }
             }
             reset_timer = true;
@@ -333,9 +333,9 @@ public class Dotcase extends Activity implements SensorEventListener
                 running = false;
                 finish();
                 overridePendingTransition(0, 0);
-            } else if (intent.getAction().equals(TorchConstants.ACTION_STATE_CHANGED)) {
+            } /*else if (intent.getAction().equals(TorchConstants.ACTION_STATE_CHANGED)) {
                 torchStatus = intent.getIntExtra(TorchConstants.EXTRA_CURRENT_STATE, 0) != 0;
-            }
+            }*/
         }
     };
 }
