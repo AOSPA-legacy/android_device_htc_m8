@@ -47,16 +47,13 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-
-# Charge mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 zcache
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 zcache androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -68,9 +65,6 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8974
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-TARGET_QCOM_AUDIO_VARIANT := caf
-TARGET_QCOM_DISPLAY_VARIANT := caf-new
-TARGET_QCOM_MEDIA_VARIANT := caf-new
 TARGET_USES_QCOM_BSP := true
 
 # Audio
@@ -92,6 +86,9 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
+# Font
+EXTENDED_FONT_FOOTPRINT := true
+
 # Graphics
 BOARD_EGL_CFG := device/htc/m8/configs/egl.cfg
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
@@ -104,8 +101,14 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
+# Includes
+TARGET_SPECIFIC_HEADER_PATH := device/htc/m8/include
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
+
+# Logging
+TARGET_USES_LOGD := false
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8974
@@ -133,32 +136,6 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 TARGET_USES_WCNSS_CTRL := true
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP := "ap"
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/htc/m8/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    app.te \
-    bluetooth.te \
-    device.te \
-    domain.te \
-    drmserver.te \
-    file_contexts \
-    file.te \
-    hci_init.te \
-    healthd.te \
-    init_shell.te \
-    init.te \
-    keystore.te \
-    kickstart.te \
-    mediaserver.te \
-    rild.te \
-    surfaceflinger.te \
-    system.te \
-    ueventd.te \
-    wpa_socket.te \
-    wpa.te
 
 # Webkit
 ENABLE_WEBGL := true
