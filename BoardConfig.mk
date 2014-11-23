@@ -195,3 +195,5 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/m8/releasetools
 
 # Hardware
 BOARD_HARDWARE_CLASS := device/htc/m8/cmhw
+
+WITH_DEXPREOPT := true
