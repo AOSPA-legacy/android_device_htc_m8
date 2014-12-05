@@ -428,7 +428,7 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
@@ -492,18 +492,6 @@ service qmuxd /system/bin/qmuxd
     class core
     user radio
     group radio audio bluetooth gps qcom_diag
-
-service qrngd /system/bin/qrngd -f
-   class main
-   user root
-   group root
-
-service qrngp /system/bin/qrngp
-    class main
-    user root
-    group root
-    oneshot
-    disabled
 
 service qseecomd /system/bin/qseecomd
    class main
