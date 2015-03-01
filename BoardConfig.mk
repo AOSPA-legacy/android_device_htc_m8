@@ -197,3 +197,4 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/m8/releasetools
 BOARD_HARDWARE_CLASS := device/htc/m8/cmhw
 
 WITH_DEXPREOPT := true
+DEX_PREOPT_DEFAULT := nostripping
